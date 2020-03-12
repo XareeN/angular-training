@@ -1,0 +1,76 @@
+<div>
+  <form>
+    <div>
+      <label for="name">Imię </label>
+      <input 
+      ngModel 
+      name="name" 
+      id="name" type="text"
+  
+      required 
+      maxlength="50" 
+      >
+      <div *ngIf="name.touched && !name.valid">
+        <div *ngIf="name.errors.required">Imię jest wymagane</div>
+        <div *ngIf="name.errors.maxlength">Imię ma ponad {{name.errors.maxlength.requiredLength}} znaków</div>
+        <!-- <div *ngIf="name.errors.pattern">Imię nie jest prawdziwym imieniem</div> -->
+      </div>
+    </div>
+    <div>
+      <label for="surname">Nazwisko </label>
+      <input ngModel required maxlength="100" name="surname" id="surname" type="text">
+      
+    </div>
+    <div>
+      <label for="age">Wiek </label>
+      <input ngModel name="age" id="age" type="text">
+    </div>
+    <div>
+      <label for="pesel">Pesel </label>
+      <input ngModel name="pesel" id="pesel" type="text">
+    </div>
+    <div>
+      <label for="postalCode">Kod pocztowy </label>
+      <input ngModel name="postalCode" id="postalCode" type="text">
+    </div>
+    <div>
+      <label for="city">Miasto </label>
+      <input ngModel required maxlength="50" name="city" id="city" type="text">
+    </div>
+    <div>
+      <label for="street">Ulica </label>
+      <input ngModel required maxlength="50" name="street" id="street" type="text">
+    </div>
+    <button type="submit" (click)="submitData(data)" >Dodaj</button><button type="reset" (click)="clearInputs()">Wyczyść</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Wiek</th>
+        <th>PESEL</th>
+        <th>Kod pocztowy</th>
+        <th>Miasto</th>
+        <th>Ulica</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>John</td>
+        <td>Cena</td>
+        <td>34</td>
+        <td>67789813456</td>
+        <td>45-863</td>
+        <td>Atlantis</td>
+        <td>Sesame</td>
+        <td><button (click)="increment()">Edytuj</button><button>Usuń</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+{{count}}
+</div>
